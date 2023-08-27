@@ -15,13 +15,6 @@
         </p>
       </div>
     </div>
-    <div class="page-bar">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
-    </div>
   </div>
 </template>
 
@@ -74,11 +67,5 @@ export default {
 
   .page-bar {
     display: flex;
-  }
-  .page-bar div {
-    width: 15vw;
-    height: 1.5vw;
-    background-color: #C1C1C1;
-    margin-right: 1vw;
   }
 </style>

@@ -21,6 +21,7 @@
 .container {
   position: relative;
   height: 100%;
+  width: 100vw;
 }
 .sub-text {
   position: absolute;
@@ -52,7 +53,7 @@
   width: 100%;
   height: 100%;
 }
-.top-image h1::before{
+/* .top-image h1::before{
    content:"";
    display:inline-block;
    width:3px;
@@ -74,6 +75,6 @@
    position:absolute;
    top:15%;
    right:-20%;
-}
+} */
 
 </style>

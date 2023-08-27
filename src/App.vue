@@ -1,26 +1,51 @@
 <template>
   <!-- <img alt="Vue logo" src="./assets/logo.png">
   <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-  
-  <!-- <TopPage /> -->
-  <!-- <ProfilePage /> -->
-  <SkillsPage />
+  <Carousel>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
+        <TopPage></TopPage>
+      </div>
+    </Slide>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
+        <ProfilePage/>
+      </div>
+    </Slide>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
+        <SkillsPage/>
+      </div>
+    </Slide>
+
+    <template #addons>
+      <Navigation />
+      <Pagination />
+    </template>
+  </Carousel>
   
 </template>
 
 <script>
-// import HelloWorld from './components/HelloWorld.vue'
-// import TopPage from './components/TopPage.vue'
-// import ProfilePage from './components/ProfilePage.vue'
+import TopPage from './components/TopPage.vue'
+import ProfilePage from './components/ProfilePage.vue'
 import SkillsPage from './components/SkillsPage.vue'
+import 'vue3-carousel/dist/carousel.css'
+import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
 export default {
   name: 'App',
   components: {
-    // HelloWorld
-    // TopPage,
-    // ProfilePage,
+
+
+    TopPage,
+    ProfilePage,
     SkillsPage,
+    Carousel,
+    Slide,
+    Pagination,
+    Navigation,
+
   }
 }
 </script>
@@ -36,6 +61,41 @@ export default {
   background-repeat: no-repeat;
   width: 100%;
   height: calc(100vw * 9/16);
+  /* max-height: 100vh; */
 
+}
+
+.carousel__item {
+  /* min-height: 200px; */
+
+  height: calc(100vw * 9/16);
+  /* background-color: var(--vc-clr-primary); */
+  /* color: var(--vc-clr-white); */
+  /* font-size: 20px; */
+  /* border-radius: 8px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
+}
+
+.carousel__pagination{
+  position: absolute;
+  bottom: 3vw;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.carousel__pagination-button::after {
+  width: 10vw !important;
+  height: 1vw !important;
 }
 </style>
