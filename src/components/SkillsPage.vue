@@ -166,14 +166,18 @@ export default {
 
   img {
     width: 5vw;
+    height: 5vw;
   }
   h2 {
     border-bottom: 0.5vw solid;
     margin: 0 5vw;
     padding-bottom: 2vw;
+    margin-bottom: 5vw;
+    text-align: left;
   }
   h4 {
     text-align: center;
+    font-size: 1vw;
   }
 
   .container {
@@ -188,8 +192,7 @@ export default {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 100%;
-    margin-top: 5vw;
+    width: 90vw;
   }
 
   .parent {
@@ -211,14 +214,14 @@ export default {
     justify-content: center;
     flex-direction: column;
     align-content: space-between;
-    width: 8vw;
+    width: 7vw;
     height: 8vw;
   }
 
   .image-wrapper {
     display: flex;
     justify-content: center;
-    height: 10vw;
+    height: 6vw;
   }
 
 </style>

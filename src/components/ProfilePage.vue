@@ -13,6 +13,14 @@
           短所 - 完璧主義<br>
           趣味 - プログラミング、ミステリー小説
         </p>
+        <div class="sns-wrapper">
+          <a href="https://twitter.com/makoblog2">
+            <img src="../assets/img/X.jpg" alt="">
+          </a>
+          <a href="https://github.com/makoto00000">
+            <img src="../assets/img/github.png" alt="">
+          </a>
+        </div>
       </div>
     </div>
   </div>
@@ -42,7 +50,7 @@ export default {
   }
   .image-bg {
     background-color: #000000;
-    width: 25%;
+    width: 30vw;
     padding: 2vw;
     margin-right: 5vw;
   }
@@ -53,7 +61,8 @@ export default {
   }
 
   .profile {
-    width: 60%;
+    /* width: 60%; */
+    text-align: left;
   }
   .job-name {
     font-size: 2rem;
@@ -64,8 +73,13 @@ export default {
 .profile-text {
   line-height: 3vw;
 }
-
-  .page-bar {
-    display: flex;
-  }
+.sns-wrapper {
+  display: flex;
+  margin-top: 2vw;
+}
+.sns-wrapper img {
+  width: 3vw;
+  margin-right: 2vw;
+  cursor: pointer;
+}
 </style>

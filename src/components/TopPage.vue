@@ -7,6 +7,7 @@
       <div class="top-image">
         <img src="../assets/img/topPageImage.png" alt="topPageImage" srcset="">
         <h1>portfolio.</h1>
+        <p>makoto hata</p>
       </div>
   </div>
 </template>
@@ -45,6 +46,11 @@
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+}
+.top-image p {
+  top: 65%;
+  font-size: 3vw;
+  font-weight: bold;
 }
 .top-image * {
   position: absolute;

@@ -4,6 +4,16 @@
   <Carousel>
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
+        <SelfAnalysisPage/>
+      </div>
+    </Slide>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
+        <ProductPage/>
+      </div>
+    </Slide>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
         <TopPage></TopPage>
       </div>
     </Slide>
@@ -15,6 +25,11 @@
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
         <SkillsPage/>
+      </div>
+    </Slide>
+    <Slide v-for="slide in 1" :key="slide">
+      <div class="carousel__item">
+        <ContactPage/>
       </div>
     </Slide>
 
@@ -30,6 +45,9 @@
 import TopPage from './components/TopPage.vue'
 import ProfilePage from './components/ProfilePage.vue'
 import SkillsPage from './components/SkillsPage.vue'
+import ProductPage from './components/ProductPage.vue'
+import SelfAnalysisPage from './components/SelfAnalysisPage.vue'
+import ContactPage from './components/ContactPage.vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
@@ -41,6 +59,9 @@ export default {
     TopPage,
     ProfilePage,
     SkillsPage,
+    ProductPage,
+    SelfAnalysisPage,
+    ContactPage,
     Carousel,
     Slide,
     Pagination,
@@ -57,12 +78,11 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #333333;
   background-image: url("./assets/img/bgImage.png");
+  background-color: #EEEEEE;
   background-size: contain;
   background-repeat: no-repeat;
-  width: 100%;
+  width: 100vw;
   height: calc(100vw * 9/16);
-  /* max-height: 100vh; */
-
 }
 
 .carousel__item {
@@ -90,7 +110,7 @@ export default {
 
 .carousel__pagination{
   position: absolute;
-  bottom: 3vw;
+  bottom: 4vw;
   left: 50%;
   transform: translateX(-50%);
 }
