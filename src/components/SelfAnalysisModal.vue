@@ -6,10 +6,7 @@ const modalNum = ref(0);
 const props = defineProps({
   analyses:[]
 });
-
 const analyses = ref(props.analyses);
-
-
 </script>
 
 <template>
@@ -29,18 +26,15 @@ const analyses = ref(props.analyses);
     </div>
   </div>
 </Transition>
-
 </template>
 
 <style scoped>
 .v-enter-active, .v-leave-active {
   transition: opacity 0.5s ease;
 }
-
 .v-enter-from, .v-leave-to {
   opacity: 0;
 }
-
 .analysis-wrapper {
   width: 100%;
   height: 30vw;
@@ -109,6 +103,7 @@ const analyses = ref(props.analyses);
   transition: 0.5s;
   border-radius: 2vw;
 }
+
 .modal_content img {
   width: 45%;
   border-radius: 1vw;
@@ -129,7 +124,6 @@ const analyses = ref(props.analyses);
 .close_button:hover {
   color: darkred;
 }
-
 .modal_overlay{
   opacity: 1;
   transform: scale(1);
@@ -138,7 +132,6 @@ const analyses = ref(props.analyses);
 .modal_overlay .modal_content{
   transform: scale(1);
 }
-
 button {
   background-color: transparent;
   border: none;
@@ -172,5 +165,4 @@ button {
     transform: scale(1);
   }
 }
-
 </style>
