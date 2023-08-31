@@ -24,4 +24,4 @@ Vue.jsを用いて作成しました。
 
 
 ## サイトURL
-See [ポートフォリオへ](https://localhost:8080).
+[ポートフォリオへ](https://localhost:8080).
