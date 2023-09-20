@@ -56,7 +56,7 @@ const Products = ref([
 
 <template>
 
-    <div class="product-wrapper">
+  <div class="product-wrapper">
     <div class="product-card"><img @click="open = true, productNum = 0" src="../assets/img/product/lfb.png" alt="">
     </div>
     <div class="product-card"><img @click="open = true, productNum = 1" src="../assets/img/product/cat.png" alt="">
@@ -68,7 +68,6 @@ const Products = ref([
     <div class="product-card"><img @click="open = true, productNum = 4" src="../assets/img/product/someDiaries.png" alt="">
     </div>
   </div>
-
   <Transition>
     <div v-if="open" class="modal_wrap">
       <div @click="open=false" class="modal_overlay">

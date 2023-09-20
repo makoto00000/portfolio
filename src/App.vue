@@ -1,10 +1,9 @@
 <template>
-  <!-- <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/> -->
+
   <Carousel>
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
-        <SelfAnalysisPage/>
+        <TopPage/>
       </div>
     </Slide>
     <Slide v-for="slide in 1" :key="slide">
@@ -14,7 +13,7 @@
     </Slide>
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
-        <TopPage></TopPage>
+        <SkillsPage/>
       </div>
     </Slide>
     <Slide v-for="slide in 1" :key="slide">
@@ -24,7 +23,7 @@
     </Slide>
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
-        <SkillsPage/>
+        <SelfAnalysisPage/>
       </div>
     </Slide>
     <Slide v-for="slide in 1" :key="slide">
@@ -51,11 +50,10 @@ import ContactPage from './components/ContactPage.vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
 
+
 export default {
   name: 'App',
   components: {
-
-
     TopPage,
     ProfilePage,
     SkillsPage,
@@ -66,8 +64,7 @@ export default {
     Slide,
     Pagination,
     Navigation,
-
-  }
+  },
 }
 </script>
 
@@ -79,27 +76,24 @@ export default {
   color: #333333;
   background-image: url("./assets/img/bgImage.png");
   background-color: #EEEEEE;
-  background-size: contain;
+  background-size:cover;
   background-repeat: no-repeat;
   width: 100vw;
-  height: calc(100vw * 9/16);
+  /* height: calc(100vw * 9/16); */
+  height: 100vh;
 }
 
 .carousel__item {
-  /* min-height: 200px; */
-
   height: calc(100vw * 9/16);
-  /* background-color: var(--vc-clr-primary); */
-  /* color: var(--vc-clr-white); */
-  /* font-size: 20px; */
-  /* border-radius: 8px; */
+  max-height: 100vh;
+  max-width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .carousel__slide {
-  padding: 10px;
+  padding: 0 1vw;
 }
 
 .carousel__prev,
@@ -110,7 +104,7 @@ export default {
 
 .carousel__pagination{
   position: absolute;
-  bottom: 4vw;
+  bottom: 2vw;
   left: 50%;
   transform: translateX(-50%);
 }
