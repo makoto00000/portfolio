@@ -1,4 +1,31 @@
 const { defineConfig } = require('@vue/cli-service')
+
+// require('dotenv').config()
+
 module.exports = defineConfig({
-  transpileDependencies: true
+  transpileDependencies: true,
+  publicPath: './',
+  configureWebpack: {
+    resolve: {
+      fallback: {
+        "fs": false,
+        "path": false,
+        "os": false,
+        "stream": false,
+        "crypto": false,
+        "http": false,
+        "https": false,
+        "zlib": false,
+        "net": false,
+        "dns": false,
+        "tls": false,
+        "child_process": false,
+      },
+    },
+  },
+  devServer: {
+      port: 8080,
+      // localhostでvueからexpressにAPIリクエストを送信する為の設定
+      proxy: 'http://localhost:3000'
+  },
 })
