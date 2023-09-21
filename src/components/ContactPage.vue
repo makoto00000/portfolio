@@ -7,8 +7,8 @@ import { ref } from 'vue';
 import VUeElementLoading from "vue-element-loading";
 
 const MAIL_ADDRESS = ref(process.env.VUE_APP_MAIL_ADDRESS);
-const open = ref(true);
-let sendError = ref(true);
+const open = ref(false);
+let sendError = ref(undefined);
 
 
 
