@@ -21,7 +21,7 @@
 <style scoped>
 .container {
   position: relative;
-  height: 100%;
+  height: calc(100vw * 9/16);
   width: 100vw;
 }
 .sub-text {
@@ -36,7 +36,7 @@
 }
 .top-image {
   position: absolute;
-  height: 80%;
+  height: 50vw;
   width: 35%;
   display: flex;
   justify-content: center;
@@ -44,8 +44,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
 }
 .top-image p {
   top: 65%;
@@ -57,7 +55,7 @@
 }
 .top-image img {
   width: 100%;
-  height: 100%;
+  /* height: 100%; */
 }
 /* .top-image h1::before{
    content:"";

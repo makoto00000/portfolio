@@ -83,7 +83,7 @@
               <div class="image-wrapper">
                 <img src="../assets/img/language-logo/rails.png" alt="">
               </div>
-              <h4>Ruby on Rails</h4>
+              <h4>Rails</h4>
             </div>
           </div>
 
@@ -123,12 +123,12 @@
                 </div>
                 <h4>MySQL</h4>
               </div>
-              <div class="image-card">
+              <!-- <div class="image-card">
                 <div class="image-wrapper">
                   <img src="../assets/img/language-logo/graphql.png" alt="">
                 </div>
                 <h4>GraphQL</h4>
-              </div>
+              </div> -->
           </div>
             
           <div class="lower-row">
@@ -144,12 +144,12 @@
               </div>
               <h4>git</h4>
             </div>
-            <div class="image-card">
+            <!-- <div class="image-card">
               <div class="image-wrapper">
                 <img src="../assets/img/language-logo/aws.png" alt="">
               </div>
               <h4>AWS</h4>
-            </div>
+            </div> -->
             </div>
           </div>
         </div>
@@ -174,6 +174,7 @@ export default {
     padding-bottom: 2vw;
     margin-bottom: 5vw;
     text-align: left;
+    width: 90%;
   }
   h4 {
     text-align: center;
@@ -183,9 +184,10 @@ export default {
   .container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    /* height: calc(100vw * 9/16); */
   }
 
   .skill-wrapper {
@@ -194,6 +196,7 @@ export default {
     align-items: center;
     width: 90vw;
   }
+
 
   .parent {
     display: flex;
@@ -223,5 +226,47 @@ export default {
     justify-content: center;
     height: 6vw;
   }
+
+  @media screen and (max-width: 768px) {
+	.skill-wrapper {
+    flex-direction: column;
+  }
+  .language-wrapper, .flamework-wrapper, .other-wrapper {
+    margin-bottom: 10vw;
+    width: 80%;
+  }
+  .upper-row {
+    margin-bottom: 10vw;
+  }
+  .image-card {
+    margin-right: 10vw;
+    width: 10vw;
+    padding: 0 1vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .image-card:last-child {
+    margin-right: 0;
+  }
+  .image-wrapper {
+    height: 10vw;
+  }
+
+  h3 {
+    font-size: 4vw;
+    margin-bottom: 4vw;
+  }
+  h4 {
+    font-size: 3vw;
+  }
+
+  img {
+    height: 10vw;
+    width: 10vw;
+    margin-bottom: 5vw;
+  }
+
+}
 
 </style>

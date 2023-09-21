@@ -7,14 +7,14 @@ import { ref } from 'vue';
 import VUeElementLoading from "vue-element-loading";
 
 const MAIL_ADDRESS = ref(process.env.VUE_APP_MAIL_ADDRESS);
-const open = ref(false);
-let sendError = ref(undefined);
+const open = ref(true);
+let sendError = ref(true);
 
 
 
 const schema = object({
   name: string().required("必須の項目です").label("Name"),
-  email: string().required("必須の項目です").email("メールアドレスの形式ではありません").label("Email"),
+  email: string().required("必須の項目です").email("メールアドレスを入力してください").label("Email"),
 });
 const { errors, useFieldModel, handleSubmit, isSubmitting } = useForm({
   validationSchema: schema,
@@ -56,14 +56,14 @@ const [name, email, message] = useFieldModel(['name', 'email', 'message']);
           <div class="name">
             <div class="label-wrap">
               <label for="name">Name</label>
-              <span>{{errors.name}}</span>
+              <span class="validation_msg">{{errors.name}}</span>
             </div>
             <input type="text" v-model="name" />
           </div>
           <div class="email">
             <div class="label-wrap">
               <label for="email">Email</label>
-              <span>{{errors.email}}</span>
+              <span class="validation_msg">{{errors.email}}</span>
             </div>
             <input type="text" v-model="email" />
           </div>
@@ -98,19 +98,22 @@ const [name, email, message] = useFieldModel(['name', 'email', 'message']);
               <h5>Message</h5>
               <p>{{message}}</p>
             </div>
-            <button type="submit">submit</button>
+            <button type="submit" class="submit_button">submit</button>
           </form>
         </div>
         <div v-if="isSubmitting" class="modal_inner">
         </div>
         <div v-if="sendError == true && !isSubmitting" class="after_submit">
           <h4>送信できませんでした...</h4>
+          <img src="../assets/img/apologize.png" class="apologize_img">
+
           <p>何らかの理由でメッセージが送信されませんでした。<br>お手数ですが時間をおいて再度送信するか、下記のメールアドレスへ直接ご連絡お願いいたします。</p>
           <a :href="`mailto:${MAIL_ADDRESS}`">{{MAIL_ADDRESS}}</a>
         </div>
         <div v-if="sendError == false && !isSubmitting" class="after_submit">
           <h4>送信が完了しました!</h4>
-          <p>ご入力頂いたメールアドレスへご返信いたします。<br>しばらくお待ち下さい。<br>メールは｢{{MAIL_ADDRESS}}｣で送信致します。｢{{MAIL_ADDRESS}}｣からのメールを受信できるように設定をお願いします。</p>
+          <img src="../assets/img/send-mail.png" class="send_mail_img">
+          <p>ご入力頂いたメールアドレスへ返信します。<br>しばらくお待ち下さい。<br>メールは｢{{MAIL_ADDRESS}}｣で送信致します。｢{{MAIL_ADDRESS}}｣からのメールを受信できるように設定をお願いします。</p>
         </div>
 
       </div>
@@ -131,7 +134,7 @@ const [name, email, message] = useFieldModel(['name', 'email', 'message']);
 }
 h4 {
   font-size: 2.5vw !important;
-  margin-bottom: 1vw;
+  margin-bottom: 2vw;
 }
 h5 {
   font-size: 2vw !important;
@@ -151,8 +154,16 @@ h5 {
 .after_submit h4 {
   margin-bottom: 3vw;
 }
+.send_mail_img {
+  width: 20vw;
+  margin-bottom: 3vw;
+}
+.apologize_img {
+  width: 10vw;
+  margin-bottom: 3vw;
+}
 .after_submit p {
-  font-size: 1.5vw;
+  font-size: 1vw;
   margin-bottom: 2vw;
 }
 .v-enter-active, .v-leave-active {
@@ -166,9 +177,9 @@ h5 {
 }
   h2 {
     border-bottom: 0.5vw solid;
-    margin: 2vw;
-    margin-top: 0;
+    margin: 0 5vw;
     padding-bottom: 2vw;
+    margin-bottom: 5vw;
     text-align: left;
   }
 
@@ -176,8 +187,8 @@ h5 {
     display: flex;
     justify-content: center;
     flex-direction: column;
-    width: 80vw;
-    height: 100%;
+    width: 100%;
+    height: calc(100vw * 9/16);
   }
 
 .input-area {
@@ -190,6 +201,7 @@ label {
   font-size: 3vw;
   text-align: left;
 }
+
 input, textarea {
   resize: none;
   border: 0.1vw solid #707070;
@@ -214,13 +226,23 @@ textarea {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 37vw;
 }
-.label-wrap span {
+
+.validation_msg {
   color: darkred;
   font-weight: bold;
+  width: 60%;
+  text-align: right;
 }
   .name, .email, .message {
     display: flex;
+    flex-direction: column;
+  }
+  .form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     flex-direction: column;
   }
   button {
@@ -252,8 +274,8 @@ textarea {
 .modal_content{
   align-self: center;
   width: 40vw;
-  height: 40vw;
-  padding: 2vw;
+  max-height: 40vw;
+  padding: 3vw;
   box-sizing: border-box;
   background: #fff;
   transform: scale(0.3);
@@ -261,6 +283,16 @@ textarea {
   border-radius: 2vw;
   overflow: scroll;
   z-index: 9999;
+}
+.submit_button {
+  display: block;
+  margin: 4vw auto 0;
+}
+@media screen and (max-width: 768px) {
+  .modal_content {
+    height: 110vw;
+    width: 70%;
+  }
 }
   .close_button{
   position: absolute;
@@ -283,4 +315,5 @@ textarea {
 .modal_overlay .modal_content{
   transform: scale(1);
 }
+
 </style>

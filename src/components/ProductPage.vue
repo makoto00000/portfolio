@@ -19,14 +19,16 @@ import ProductModal from './ProductModal.vue';
     padding-bottom: 2vw;
     margin-bottom: 5vw;
     text-align: left;
+    width: 90%;
   }
 
   .container {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: calc(100vw * 9/16);
   }
   
 </style>

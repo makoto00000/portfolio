@@ -33,7 +33,7 @@ export default {
 </script>
 <style scoped>
   .container {
-    height: 100%;
+    height: calc(100vw * 9/16);
     width: 100%;
     display: flex;
     justify-content: center;

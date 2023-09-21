@@ -1,6 +1,7 @@
 <template>
+  
 
-  <Carousel>
+  <Carousel v-if="show">
     <Slide v-for="slide in 1" :key="slide">
       <div class="carousel__item">
         <TopPage/>
@@ -37,10 +38,22 @@
       <Pagination />
     </template>
   </Carousel>
+
+  <div v-if="!show">
+    <TopPage/>
+    <ProductPage/>
+    <SkillsPage/>
+    <ProfilePage/>
+    <SelfAnalysisPage/>
+    <ContactPage/>
+  </div>
+  
+
+  
   
 </template>
 
-<script>
+<script setup>
 import TopPage from './components/TopPage.vue'
 import ProfilePage from './components/ProfilePage.vue'
 import SkillsPage from './components/SkillsPage.vue'
@@ -49,23 +62,26 @@ import SelfAnalysisPage from './components/SelfAnalysisPage.vue'
 import ContactPage from './components/ContactPage.vue'
 import 'vue3-carousel/dist/carousel.css'
 import { Carousel, Slide, Pagination, Navigation } from 'vue3-carousel'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { debounce } from 'lodash';
 
+const innerWidth = ref(window.innerWidth);
+const show = ref(innerWidth.value >= 1024 ? true : false);
+const checkWindowSize = () => {
+  if (window.innerWidth >= 1024) {
+    if (show.value === false && innerWidth.value < 1024) show.value = true;
+  } else {
+    if (show.value === true) show.value = false;
+  }
+  innerWidth.value = window.innerWidth;
+};
+onMounted(() => {
+  window.addEventListener('resize', debounce(checkWindowSize, 100));
+});
+onUnmounted(() => {
+  window.removeEventListener('resize', checkWindowSize);
+});
 
-export default {
-  name: 'App',
-  components: {
-    TopPage,
-    ProfilePage,
-    SkillsPage,
-    ProductPage,
-    SelfAnalysisPage,
-    ContactPage,
-    Carousel,
-    Slide,
-    Pagination,
-    Navigation,
-  },
-}
 </script>
 
 <style>
@@ -80,12 +96,12 @@ export default {
   background-repeat: no-repeat;
   width: 100vw;
   /* height: calc(100vw * 9/16); */
-  height: 100vh;
+  height: 100%;
 }
 
 .carousel__item {
   height: calc(100vw * 9/16);
-  max-height: 100vh;
+  /* max-height: 100vh; */
   max-width: 100vw;
   display: flex;
   justify-content: center;

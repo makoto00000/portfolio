@@ -82,7 +82,7 @@ const Products = ref([
                 <p><span class="bold">開発期間：</span>{{ Products[productNum].term }}</p>
                 <p><span class="bold">内容：</span><br>{{ Products[productNum].comment }}</p>
                 <p v-if="Products[productNum].url != '' "><span class="bold">URL：</span><a :href=' Products[productNum].url ' target="blank">{{ Products[productNum].name }}</a><img class="gaibu-link" src="../assets/img/gaibu-link.png" alt=""></p>
-                <p v-if="Products[productNum].url == '' ">※現在非公開</p>
+                <p v-if="Products[productNum].url == '' ">※現在制作中</p>
             </div>
           </div>
         </div>
@@ -115,9 +115,10 @@ video {
     animation: zoomOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
     display: flex;
     align-items: center;
+    justify-content: center;
   }
   .product-card img {
-    width: 100%;
+    width: 80%;
     padding: 2vw;
   }
   .product-card:hover {
@@ -175,6 +176,11 @@ video {
   transition: 0.5s;
   border-radius: 2vw;
 }
+@media screen and (max-width: 1024px) {
+  .modal_content {
+    height: 100vw;
+  }
+}
 .modal_content h3 {
   margin-bottom: 2vw;
 }
@@ -182,18 +188,27 @@ video {
   width: 100%;
   height: 100%;
   display: flex;
+  align-items: start;
 }
 .modal-block-right {
   overflow: scroll;
   padding-bottom: 5vw;
+  height: 80%;
 }
 .modal-block-right p {
   margin: 2vw;
 }
 .img-datail {
-  height: 80%;
+  max-height: 80%;
+  max-width: 50%;
   margin-left: 5vw;
   margin-right: 5vw;
+}
+@media (max-width: 1024px) {
+  .img-detail {
+    width: 20vw;
+    height: 0;
+  }
 }
 .modal_content p {
   font-size: 2vw;

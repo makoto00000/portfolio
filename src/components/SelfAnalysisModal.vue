@@ -45,7 +45,10 @@ const analyses = ref(props.analyses);
   font-size: 2vw;
   font-weight: bold;
   position: absolute;
+  border-bottom: 0.3vw solid #333;
+  font-size: 2.5vw;
 }
+
 .word1 {
   top: 0;
   left: 20vw;
@@ -102,6 +105,14 @@ const analyses = ref(props.analyses);
   transform: scale(0.3);
   transition: 0.5s;
   border-radius: 2vw;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .modal_content {
+    height: 80vw;
+  }
 }
 
 .modal_content img {
@@ -144,7 +155,6 @@ button {
   animation: zoomOut 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
 }
 .open:hover {
-  font-size: 2vw;
   font-weight: bold;
   color:darkred;
   animation: zoomIn 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
