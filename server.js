@@ -55,5 +55,5 @@ app.post("/api/mail", async (req,res) => {
 
 const PORT=process.env.PORT || 3000;
 app.listen(PORT, ()=>{
-  console.log("api server listening... at :3000")
+  console.log(`api server listening... at :${PORT}`)
 });
