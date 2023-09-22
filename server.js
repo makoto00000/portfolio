@@ -39,17 +39,21 @@ app.post("/api/mail", async (req,res) => {
   };
   
   transporter.sendMail(data, (error, info) => {
-    let sendError;
+    let sendError = true;
     if(error) {
       console.log(error); // エラー情報
-      res.send(sendError=true)
+      res.send(sendError)
     } else {
       console.log(info);  // 送信したメールの情報
-      res.send(sendError=false)
+      sendError = false
+      res.send(sendError)
     }
   });
 
 
 });
-app.listen(3000);
-console.log("api server listening... at :3000")
+
+const PORT=process.env.PORT || 3000;
+app.listen(PORT, ()=>{
+  console.log("api server listening... at :3000")
+});
