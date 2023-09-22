@@ -10,8 +10,7 @@
     "build-stg": "vue-cli-service build --mode staging",
     "build-prod": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
-    "render-prebuild": "npm install -g @vue/cli | npm install |  npm run build",
-    "render-postbuild": "vue-cli-service build",
+    "render-build": "npm install -g @vue/cli && npm install && vue-cli-service build",
     "start": "node server.js"
   },
   "dependencies": {
