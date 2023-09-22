@@ -10,12 +10,13 @@
     "build-stg": "vue-cli-service build --mode staging",
     "build-prod": "vue-cli-service build --mode production",
     "lint": "vue-cli-service lint",
-    "build": "vue build",
+    "build": "vue-cli-service build",
     "start": "node server.js"
   },
   "dependencies": {
     "@vee-validate/i18n": "^4.11.3",
     "@vee-validate/rules": "^4.11.3",
+    "@vue/cli-service": "~5.0.0",
     "axios": "^1.5.0",
     "core-js": "^3.8.3",
     "express": "^4.18.2",
