@@ -32,7 +32,7 @@ const { errors, useFieldModel, handleSubmit, isSubmitting } = useForm({
 const onSubmit = handleSubmit(async (values,{ resetForm }) => {
   sendError.value = null;
 
-  await axios.post('/api/mail', JSON.stringify(values), {
+  await axios.post(`${process.env.API_DIR}`, JSON.stringify(values), {
     headers: {
     Accept: 'application/json',
     'content-type': 'application/json',
