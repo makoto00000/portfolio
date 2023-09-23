@@ -5,7 +5,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
 const bodyParser = require('body-parser');
-
+const __dirname = process.env.DIR_NAME;
 
 app.use('/img', express.static(__dirname + '/dist/img/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
