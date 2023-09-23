@@ -55,6 +55,7 @@ app.post("/api/mail", async (req,res) => {
 });
 
 const PORT=process.env.PORT || 32768;
-app.listen(PORT, ()=>{
+const HOST_NAME='127.0.0.1';
+app.listen(PORT, HOST_NAME, ()=>{
   console.log(`api server listening... at :${PORT}`)
 });
