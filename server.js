@@ -5,12 +5,12 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
 const bodyParser = require('body-parser');
-const __dirname = process.env.DIR_NAME;
+const dirName = process.env.DIR_NAME;
 
-app.use('/img', express.static(__dirname + '/dist/img/'));
-app.use('/css', express.static(__dirname + '/dist/css/'));
-app.use('/js', express.static(__dirname + '/dist/js/'));
-app.get('/', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
+app.use('/img', express.static(dirName + '/dist/img/'));
+app.use('/css', express.static(dirName + '/dist/css/'));
+app.use('/js', express.static(dirName + '/dist/js/'));
+app.get('/', (req, res) => res.sendFile(dirName + '/dist/index.html'))
 
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
