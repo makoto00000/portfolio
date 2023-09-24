@@ -24,11 +24,13 @@ module.exports = defineConfig({
   //   },
   // },
   devServer: {
-      host: 'localhost',
-      port: 8080,
+      host: ['localhost','makoto-portfolio.com'],
+      port: [8080,],
       // localhostでvueからexpressにAPIリクエストを送信する為の設定
-      '/api': {
-        target: 'http://localhost:32768'
+      proxy: {
+        '/api': {
+          target: 'http://localhost:32768'
+        },
       },
   },
 })
