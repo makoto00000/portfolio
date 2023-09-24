@@ -4,7 +4,6 @@ require('dotenv').config()
 const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
-const cors = require('cors');
 const bodyParser = require('body-parser');
 
 
@@ -17,11 +16,16 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
-app.use(cors({
-  origin: `https://${process.env.BASE_DOMEIN}`, //アクセス許可するオリジン
-  credentials: true, //レスポンスヘッダーにAccess-Control-Allow-Credentials追加
-  optionsSuccessStatus: 200 //レスポンスstatusを200に設定
-}))
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "makoto-potfolio.com");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  next();
+});
+
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
@@ -34,7 +38,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("/api/email", cors(), async (req,res) => {
+app.post("/api/email", async (req,res) => {
 
   const data = {
     from: 'portfolio-contact@mail.com',
