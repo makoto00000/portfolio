@@ -9,6 +9,7 @@ const bodyParser = require('body-parser');
 app.use('/img', express.static(__dirname + '/dist/img/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
+app.use('/favicon.ico', express.static(__dirname + '/dist/favicon.ico'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
 
 app.use(bodyParser.urlencoded({extended: true}))
@@ -26,7 +27,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("/api/mail", async (req,res) => {
+app.post("/api/email", async (req,res) => {
 
   const data = {
     from: 'portfolio-contact@mail.com',
@@ -54,7 +55,6 @@ app.post("/api/mail", async (req,res) => {
 });
 
 const PORT=process.env.PORT || 32768;
-const HOST_NAME='127.0.0.1';
-app.listen(PORT, HOST_NAME, ()=>{
-  console.log(`api server listening... at :${PORT}`)
+app.listen(PORT, ()=>{
+  console.log(`api server listening... at localhost:${PORT}`)
 });
