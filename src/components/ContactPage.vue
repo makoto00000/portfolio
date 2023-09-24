@@ -35,6 +35,7 @@ const onSubmit = handleSubmit(async (values,{ resetForm }) => {
     headers: {
     Accept: 'application/json',
     'content-type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
   }})
     .then(() => sendError.value = false)
     .catch((error) => console.log(error), sendError.value = true);
