@@ -34,7 +34,7 @@ const transporter = nodemailer.createTransport({
 });
 
 
-app.post("/api/email", async (req,res) => {
+app.post("/api/email", cors(), async (req,res) => {
 
   const data = {
     from: 'portfolio-contact@mail.com',
