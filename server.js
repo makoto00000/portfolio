@@ -17,12 +17,12 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 app.use((req, res, next) => {
-  res.setHeader("Access-Control-Allow-Origin", "makoto-potfolio.com");
+  res.setHeader("Access-Control-Allow-Origin", "https://makoto-potfolio.com");
   res.setHeader(
     "Access-Control-Allow-Methods",
     "GET, POST"
   );
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type", "Authorization");
   next();
 });
 
