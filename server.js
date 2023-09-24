@@ -4,7 +4,9 @@ require('dotenv').config()
 const express = require('express');
 const nodemailer = require('nodemailer');
 const app = express();
+const cors = require('cors');
 const bodyParser = require('body-parser');
+
 
 app.use('/img', express.static(__dirname + '/dist/img/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
@@ -15,6 +17,11 @@ app.get('/', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
 app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
+app.use(cors({
+  origin: `https://${process.env.BASE_DOMEIN}`, //アクセス許可するオリジン
+  credentials: true, //レスポンスヘッダーにAccess-Control-Allow-Credentials追加
+  optionsSuccessStatus: 200 //レスポンスstatusを200に設定
+}))
 
 const transporter = nodemailer.createTransport({
   host: process.env.MAIL_HOST,
@@ -56,5 +63,5 @@ app.post("/api/email", async (req,res) => {
 
 const PORT=process.env.PORT || 32768;
 app.listen(PORT, ()=>{
-  console.log(`api server listening... at localhost:${PORT}`)
+  console.log(`api server listening... at http://localhost:${PORT}`)
 });
