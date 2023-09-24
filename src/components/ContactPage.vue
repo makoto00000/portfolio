@@ -5,6 +5,7 @@ import { object, string } from 'yup';
 import axios from 'axios';
 import { ref } from 'vue';
 import VUeElementLoading from "vue-element-loading";
+import https from 'https';
 
 const MAIL_ADDRESS = ref(process.env.VUE_APP_MAIL_ADDRESS);
 const open = ref(false);
@@ -33,9 +34,11 @@ const onSubmit = handleSubmit(async (values,{ resetForm }) => {
   sendError.value = null;
   await axios.post(`${process.env.VUE_APP_API_DIR}`, JSON.stringify(values), {
     headers: {
-    Accept: 'application/json',
-    'content-type': 'application/json',
-  }})
+      Accept: 'application/json',
+      'content-type': 'application/json',
+    },
+    httpsAgent: new https.Agent({ rejectUnauthorized: false }),
+  })
     .then(() => sendError.value = false)
     .catch((error) => console.log(error), sendError.value = true);
 
