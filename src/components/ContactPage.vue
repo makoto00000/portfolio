@@ -31,11 +31,10 @@ const { errors, useFieldModel, handleSubmit, isSubmitting } = useForm({
 
 const onSubmit = handleSubmit(async (values,{ resetForm }) => {
   sendError.value = null;
-  await axios.post(`${process.env.VUE_APP_API_DIR}`, JSON.stringify(values), {
+  await axios.post('/api/email', JSON.stringify(values), {
     headers: {
     Accept: 'application/json',
     'content-type': 'application/json',
-    'Access-Control-Allow-Origin': `${process.env.VUE_APP_API_DIR}`,
   }})
     .then(() => sendError.value = false)
     .catch((error) => console.log(error), sendError.value = true);
