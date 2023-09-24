@@ -28,7 +28,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-app.post("proxy/api/email", async (req,res) => {
+app.post("/api/email", async (req,res) => {
 
   const data = {
     from: 'portfolio-contact@mail.com',
