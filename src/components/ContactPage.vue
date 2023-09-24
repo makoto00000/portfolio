@@ -35,7 +35,7 @@ const onSubmit = handleSubmit(async (values,{ resetForm }) => {
     headers: {
     Accept: 'application/json',
     'content-type': 'application/json',
-    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Origin': `${process.env.VUE_APP_API_DIR}`,
   }})
     .then(() => sendError.value = false)
     .catch((error) => console.log(error), sendError.value = true);
