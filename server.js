@@ -28,11 +28,7 @@ const transporter = nodemailer.createTransport({
   }
 });
 
-const options = {
-  rejectUnauthorized: false, 
-};
-
-app.post("/api/email", options, async (req,res) => {
+app.post("/api/email", async (req,res) => {
 
   const data = {
     from: 'portfolio-contact@mail.com',
