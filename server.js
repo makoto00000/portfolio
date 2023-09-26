@@ -12,6 +12,7 @@ app.use(cors());
 app.use('/img', express.static(__dirname + '/dist/img/'));
 app.use('/css', express.static(__dirname + '/dist/css/'));
 app.use('/js', express.static(__dirname + '/dist/js/'));
+app.use('/media', express.static(__dirname + '/dist/media/'));
 app.use('/favicon.ico', express.static(__dirname + '/dist/favicon.ico'));
 app.get('/', (req, res) => res.sendFile(__dirname + '/dist/index.html'))
 
