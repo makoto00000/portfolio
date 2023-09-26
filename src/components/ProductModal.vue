@@ -82,7 +82,7 @@ const Products = ref([
                 <p><span class="bold">開発期間：</span>{{ Products[productNum].term }}</p>
                 <p><span class="bold">内容：</span><br>{{ Products[productNum].comment }}</p>
                 <p v-if="Products[productNum].url != '' "><span class="bold">URL：</span><a :href=' Products[productNum].url ' target="blank">{{ Products[productNum].name }}</a><img class="gaibu-link" src="../assets/img/gaibu-link.png" alt=""></p>
-                <p v-if="Products[productNum].url == '' ">※現在制作中</p>
+                <p v-if="Products[productNum].url == '' ">※現在非公開</p>
             </div>
           </div>
         </div>
