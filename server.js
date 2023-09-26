@@ -30,6 +30,7 @@ const transporter = nodemailer.createTransport({
     rejectUnauthorized: false,
   },
 });
+console.log(transporter);
 
 app.post("/api/email", async (req,res) => {
 
